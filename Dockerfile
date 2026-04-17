@@ -1,6 +1,7 @@
-# Prueba con esta imagen que es ampliamente usada para el firmador SV
-FROM facturacion-electronica-sv/firmador:latest
-
-# El resto se mantiene igual
+FROM eclipse-temurin:11-jre-alpine
+WORKDIR /app
+# Copiamos el ejecutable y la carpeta de certificados
+COPY firmador.jar app.jar
 COPY ./temp /app/temp
 EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
