@@ -1,10 +1,6 @@
-# Usamos la imagen oficial del Ministerio de Hacienda
-FROM svfe/svfe-api-firmador:latest
+# Prueba con esta imagen que es ampliamente usada para el firmador SV
+FROM facturacion-electronica-sv/firmador:latest
 
-# Copiamos la carpeta temp (donde tienes tus llaves y el .crt) al contenedor
+# El resto se mantiene igual
 COPY ./temp /app/temp
-
-# El puerto por defecto que usa este firmador es el 8080
 EXPOSE 8080
-
-# La imagen ya tiene el comando de inicio, no necesitas poner un CMD
